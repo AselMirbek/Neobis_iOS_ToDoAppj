@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="Neobis_iOS_ToDoAppj" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="I9U-rX-z3G">
+                                <rect key="frame" x="0.0" y="90" width="393" height="739"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="checked cell" id="ttP-mL-Yw5" customClass="CheckTableViewCell" customModule="Neobis_iOS_ToDoAppj" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ttP-mL-Yw5" id="kd8-y5-aFf">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1zC-QM-3oX">
+                                                    <rect key="frame" x="83" y="11" width="290" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q86-4G-nv9" customClass="Checkbox" customModule="Neobis_iOS_ToDoAppj" customModuleProvider="target">
+                                                    <rect key="frame" x="10" y="0.0" width="65" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="checked:" destination="ttP-mL-Yw5" eventType="valueChanged" id="wcA-76-tNl"/>
+                                                    </connections>
+                                                </view>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="checkbox" destination="q86-4G-nv9" id="fWh-rQ-BDS"/>
+                                            <outlet property="label" destination="1zC-QM-3oX" id="9E6-C5-qJR"/>
+                                            <segue destination="mX4-wS-rsx" kind="show" id="yZE-dN-Z2K"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="FNb-zm-LL4"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="D20-ZJ-NpU"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56Q-tM-RpI">
+                                <rect key="frame" x="290" y="631" width="87" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="rT9-wp-Of7"/>
+                                    <constraint firstAttribute="width" constant="87" id="tvo-fB-oqy"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="plus.circle.fill" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="42"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="mX4-wS-rsx" kind="show" destinationCreationSelector="todoViewController:" id="MiG-lb-qji"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwl-Ak-EaJ">
+                                <rect key="frame" x="290" y="559" width="87" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="EQI-Yu-ncK"/>
+                                    <constraint firstAttribute="width" constant="87" id="Kli-FN-u0Q"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="systemGreenColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="pencil.circle.fill" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="42"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="addButtonTapped:" destination="BYZ-38-t0r" eventType="valueChanged" id="XaS-Ea-qxp"/>
+                                    <action selector="editorButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XZu-Lw-PAh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="56Q-tM-RpI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="137" id="35p-gl-nyg"/>
+                            <constraint firstItem="bwl-Ak-EaJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="137" id="6AI-RG-snu"/>
+                            <constraint firstItem="bwl-Ak-EaJ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="165" id="Jcx-cK-edH"/>
+                            <constraint firstItem="56Q-tM-RpI" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="237" id="bCg-Wo-KG9"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="3O1-Lu-6yt"/>
+                    <connections>
+                        <outlet property="addButton" destination="56Q-tM-RpI" id="xq1-kj-Oos"/>
+                        <outlet property="editorButton" destination="bwl-Ak-EaJ" id="Uer-Hs-8Gx"/>
+                        <outlet property="tableView" destination="I9U-rX-z3G" id="Eau-if-ERf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1063.3587786259541" y="3.5211267605633805"/>
+        </scene>
+        <!--Editor View Controller-->
+        <scene sceneID="V9o-jt-mlz">
+            <objects>
+                <viewController id="mX4-wS-rsx" customClass="EditorViewController" customModule="Neobis_iOS_ToDoAppj" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jZK-ge-upt">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CJj-yT-5Lf">
+                                <rect key="frame" x="28" y="95" width="337" height="34"/>
+                                <color key="backgroundColor" red="0.92941176469999998" green="0.79215686269999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="VLz-o0-Slf"/>
+                                    <constraint firstAttribute="width" constant="337" id="km4-cf-K57"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dm3-bV-9uq">
+                                <rect key="frame" x="22" y="153.66666666666663" width="349" height="659"/>
+                                <color key="backgroundColor" red="1" green="0.80784313730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="349" id="IEV-nU-Pr0"/>
+                                    <constraint firstAttribute="height" constant="659" id="WFO-V8-agb"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oUJ-mL-KQU">
+                                <rect key="frame" x="325" y="31" width="61" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="I6g-9F-ruy"/>
+                                    <constraint firstAttribute="width" constant="61" id="WpU-Ew-Wj7"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Save"/>
+                                <connections>
+                                    <action selector="saveButtonTapped" destination="mX4-wS-rsx" eventType="touchUpInside" id="wAJ-hE-u4H"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f4U-qu-7ok">
+                                <rect key="frame" x="-1" y="31" width="77" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="77" id="8pP-du-z0Z"/>
+                                    <constraint firstAttribute="height" constant="35" id="MEM-UQ-VVs"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelButtonTapped" destination="mX4-wS-rsx" eventType="touchUpInside" id="lkh-JS-fS2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="BIg-zL-vHt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dm3-bV-9uq" firstAttribute="centerX" secondItem="jZK-ge-upt" secondAttribute="centerX" id="0GO-xZ-adi"/>
+                            <constraint firstItem="oUJ-mL-KQU" firstAttribute="centerX" secondItem="jZK-ge-upt" secondAttribute="centerX" constant="159" id="1qY-HP-rTQ"/>
+                            <constraint firstItem="dm3-bV-9uq" firstAttribute="centerY" secondItem="jZK-ge-upt" secondAttribute="centerY" constant="62" id="AgZ-jR-6Qc"/>
+                            <constraint firstItem="oUJ-mL-KQU" firstAttribute="centerY" secondItem="jZK-ge-upt" secondAttribute="centerY" constant="-372.5" id="BsI-d7-0AX"/>
+                            <constraint firstItem="CJj-yT-5Lf" firstAttribute="centerY" secondItem="jZK-ge-upt" secondAttribute="centerY" constant="-309" id="PFa-pS-KaP"/>
+                            <constraint firstItem="f4U-qu-7ok" firstAttribute="centerX" secondItem="jZK-ge-upt" secondAttribute="centerX" constant="-159" id="R2q-iQ-QSJ"/>
+                            <constraint firstItem="dm3-bV-9uq" firstAttribute="centerY" secondItem="jZK-ge-upt" secondAttribute="centerY" constant="62" id="SN2-ZP-yqd"/>
+                            <constraint firstItem="CJj-yT-5Lf" firstAttribute="centerX" secondItem="jZK-ge-upt" secondAttribute="centerX" id="fUv-hk-T9F"/>
+                            <constraint firstItem="f4U-qu-7ok" firstAttribute="centerY" secondItem="jZK-ge-upt" secondAttribute="centerY" constant="-372.5" id="rOf-0s-RRg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="VyL-KO-Cbd"/>
+                    <connections>
+                        <outlet property="buttonCancel" destination="f4U-qu-7ok" id="hMf-5o-Dv4"/>
+                        <outlet property="buttonSave" destination="oUJ-mL-KQU" id="B4c-Pe-HLL"/>
+                        <outlet property="descriptionTextField" destination="dm3-bV-9uq" id="Utb-Di-DKh"/>
+                        <outlet property="nameTextField" destination="CJj-yT-5Lf" id="hL8-5V-plN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rAh-dD-z41" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1942.7480916030534" y="3.5211267605633805"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="MiG-lb-qji"/>
+    </inferredMetricsTieBreakers>
+    <resources>
+        <image name="pencil.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
