@@ -6,6 +6,11 @@
 //
 import UIKit
 
+struct Payload {
+    var name: String
+    var description: String
+}
+
 class EditorViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextView!
@@ -29,8 +34,10 @@ class EditorViewController: UIViewController {
    
         
     func setupUI() {
+        print("setup")
         if let task = task {
             // Editing an existing task
+            print("qwe")
             nameTextField.text = task.name
             descriptionTextField.text = task.description
         } else {
@@ -45,6 +52,7 @@ class EditorViewController: UIViewController {
     }
     
     @IBAction  func saveButtonTapped() {
+        print("saveButtonTapped")
         guard let name = nameTextField.text, let description = descriptionTextField.text else {
                 return
             }
@@ -52,18 +60,22 @@ class EditorViewController: UIViewController {
             let newTask = Task(name: name, description: description)
 
             if let _ = task, let indexPath = indexPath {
+                print("Updated")
                 // Update existing task
                 delegate?.updateTask(at: indexPath, task: newTask)
             } else {
+                print("Created")
                 // Create a new task
                 delegate?.createTask(name: name, description: description)
             }
-
+            
             // Save the task to UserDefaults
             saveTaskToUserDefaults(task: newTask)
-
+        print("Newtask", newTask.name, newTask.description)
+            
             // Trigger synchronization
-            synchronizeTasks()
+            let payload = Payload(name: name, description: description)
+        NotificationCenter.default.post(name: NSNotification.Name("TasksUpdated"), object: payload)
 
             dismiss(animated: true, completion: nil)
     }
@@ -93,6 +105,7 @@ class EditorViewController: UIViewController {
 
     func synchronizeTasks() {
         // Update the user interface (e.g., update the table view with tasks)
+        
         NotificationCenter.default.post(name: NSNotification.Name("TasksUpdated"), object: nil)
 
         // Perform other synchronization actions if needed

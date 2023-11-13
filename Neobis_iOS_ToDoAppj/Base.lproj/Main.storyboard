@@ -11,7 +11,7 @@
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="Neobis_iOS_ToDoAppj" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="MainViewController" customModule="Neobis_iOS_ToDoAppj" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -110,7 +110,7 @@
         <!--Editor View Controller-->
         <scene sceneID="V9o-jt-mlz">
             <objects>
-                <viewController id="mX4-wS-rsx" customClass="EditorViewController" customModule="Neobis_iOS_ToDoAppj" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditorViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mX4-wS-rsx" customClass="EditorViewController" customModule="Neobis_iOS_ToDoAppj" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jZK-ge-upt">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -177,10 +177,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="VyL-KO-Cbd"/>
                     <connections>
-                        <outlet property="buttonCancel" destination="f4U-qu-7ok" id="hMf-5o-Dv4"/>
-                        <outlet property="buttonSave" destination="oUJ-mL-KQU" id="B4c-Pe-HLL"/>
-                        <outlet property="descriptionTextField" destination="dm3-bV-9uq" id="Utb-Di-DKh"/>
-                        <outlet property="nameTextField" destination="CJj-yT-5Lf" id="hL8-5V-plN"/>
+                        <outlet property="buttonCancel" destination="f4U-qu-7ok" id="4dd-Cv-GdQ"/>
+                        <outlet property="buttonSave" destination="oUJ-mL-KQU" id="EDu-Gy-8Lv"/>
+                        <outlet property="descriptionTextField" destination="dm3-bV-9uq" id="4ax-Zl-iKC"/>
+                        <outlet property="nameTextField" destination="CJj-yT-5Lf" id="u1D-4k-jMl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rAh-dD-z41" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
